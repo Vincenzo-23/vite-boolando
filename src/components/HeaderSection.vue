@@ -1,7 +1,9 @@
 <script>
 export default {
   data() {
-
+    return {
+      models: ["Donna", "Uomo", "Bambini"],
+    } 
   }
 }
 </script>
@@ -12,19 +14,17 @@ export default {
   <header>
     <div class="container-header">
       <div class="row">
-        <div class="col-3-header">
-          <a href="#">Donna</a>
-          <a href="#">Uomo</a>
-          <a href="#">Bambini</a>
-        </div>
+        <ul class="col-3-header">
+          <li v-for="(model, i) in models"><a href="#">{{ models[i] }}</a></li>
+        </ul>
         <div class="col-6-header">
           <img class="logo" src="/boolean-logo.png" alt="Logo Boolean">
         </div>
-        <div class="col-3-header">
-          <a href="">&hearts;</a>
-          <a href="">&star;</a>
-          <a href="">&circledR;</a>
-        </div>
+        <ul class="col-3-header">
+          <li><a href="#">&hearts;</a></li>
+          <li><a href="#">&star;</a></li>
+          <li><a href="#">&circledR;</a></li>
+        </ul>
       </div>
     </div>
   </header>
@@ -51,6 +51,9 @@ export default {
 
 .col-3-header{
   font-size: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
 
