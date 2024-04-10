@@ -138,6 +138,101 @@ export default {
 </template>
 
 
-<style>
+<style lang="scss" scoped>
+
+.container .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+
+.col-3{
+    width: calc(3 * 100% / 12);
+    min-height: 100%;
+    
+}
+
+
+
+/* CARD STYLE */
+
+
+
+/* Card Footer */
+
+
+.card-footer-brand{
+    color: rgb(65, 65, 65);
+}
+
+.card-footer-title{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card-footer-price{
+    color: rgb(219, 0, 0);
+    font-weight: 700;
+}
+
+.old-price{
+    color: rgb(65, 65, 65);;
+    font-weight: 400;
+    text-decoration: line-through;
+    
+}
+
+
+    /* Card header */
+
+
+.card-header{
+    position: relative;
+}
+
+.badge-container{
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    color: white;
+    font-weight: 700;
+}
+
+ .discount-badge{
+    background-color: red;
+    padding: 5px 5px;
+    
+}
+
+.sustainability{
+   
+    background-color: green;
+    padding: 5px 5px;
+}
+    
+
+.like-button{
+    position: absolute;
+    background-color: white;
+    padding: 8px 12px;
+    font-size: 24px;
+    top: 15px;
+    right: 0;
+}
+
+
+
+
+.hover-img{
+    position: absolute;
+    left: 0;
+    opacity: 0;
+}
+
+.hover-img:hover{
+    opacity: 1;
+}
 
 </style>
