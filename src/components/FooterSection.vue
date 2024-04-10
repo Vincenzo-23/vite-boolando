@@ -38,20 +38,22 @@ export default {
 <style lang="scss" scoped>
 
 footer{
-   background-color: rgb(26, 26, 26);
-   color: white; 
-   padding-top: 15px;
-   padding-bottom: 10px;
-   margin-top: 50px;
+    background-color: rgb(26, 26, 26);
+    color: white; 
+    padding-top: 15px;
+    padding-bottom: 10px;
+    margin-top: 50px;
 }
 
 
-.container .row-footer{
+.container{
+    .row-footer{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 16px;
     height: 50px;
+    }
 }
 
 </style>

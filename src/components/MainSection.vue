@@ -140,13 +140,14 @@ export default {
 
 <style lang="scss" scoped>
 
-.container .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
+.container {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
 }
-
 
 .col-3{
     width: calc(3 * 100% / 12);
@@ -229,10 +230,11 @@ export default {
     position: absolute;
     left: 0;
     opacity: 0;
+    &:hover {
+    opacity: 1;
+    }
 }
 
-.hover-img:hover{
-    opacity: 1;
-}
+
 
 </style>
