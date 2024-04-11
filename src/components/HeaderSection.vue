@@ -3,6 +3,7 @@ export default {
   data() {
     return {
       models: ["Donna", "Uomo", "Bambini"],
+      icons: ["&hearts;", "&star;", "&circledR;"]
     } 
   }
 }
@@ -21,9 +22,7 @@ export default {
           <img class="logo" src="/boolean-logo.png" alt="Logo Boolean">
         </div>
         <ul class="col-3-header">
-          <li><a href="#">&hearts;</a></li>
-          <li><a href="#">&star;</a></li>
-          <li><a href="#">&circledR;</a></li>
+          <li v-for="(icon, i) in icons"><a href="#" v-html="icon"></a></li>
         </ul>
       </div>
     </div>
@@ -46,7 +45,6 @@ export default {
     gap: 50px;
   }
 }
-
 
 
 .col-3-header{
