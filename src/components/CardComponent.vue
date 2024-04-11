@@ -1,5 +1,6 @@
 <script>
 export default {
+    props: ["card", "badge"],
   data() {
     return{
         
@@ -13,19 +14,19 @@ export default {
 
     <div class="col-3">
         <div class="card-header">
-            <img src="/1.webp" alt="Picture of a model with the white shirt and beige pants">
-            <img class="hover-img" src="/1b.webp" alt="Picture of a model with the white shirt and beige pants with a brown jacket">
+            <img :src="card.frontImage" alt="Picture of a model with the white shirt and beige pants">
+            <img class="hover-img" :src="card.backImage" alt="Picture of a model with the white shirt and beige pants with a brown jacket">
             <div class="badge-container">
                 <span class="discount-badge">-50%</span>
-                <span class="sustainability">Sostenibilità</span>
+                <span class="sustainability" v-if="badge[0].type === `tag`">{{ badge[0].value }}</span>
             </div>
             <button class="like-button">&hearts;</button>
         </div>
         <div class="card-footer">
-            <div class="card-footer-brand">Levi's</div>
-            <h3 class="card-footer-title">RELAXED FIT TEE UNISEX</h3>
-            <div class="card-footer-price">14,99 € 
-                <span class="old-price">29,99 €</span>
+            <div class="card-footer-brand">{{ card.brand }}</div>
+            <h3 class="card-footer-title">{{ card.name }}</h3>
+            <div class="card-footer-price">{{ card.price }} € 
+                <span class="old-price">{{ card.oldPrice }} €</span>
             </div>
         </div>
     </div>
