@@ -16,17 +16,17 @@ export default {
         <div class="card-header">
             <img :src="card.frontImage" alt="Picture of a model with the white shirt and beige pants">
             <img class="hover-img" :src="card.backImage" alt="Picture of a model with the white shirt and beige pants with a brown jacket">
-            <div class="badge-container">
-                <span class="discount-badge">-50%</span>
-                <span class="sustainability" v-if="badge[0].type === `tag`">{{ badge[0].value }}</span>
-            </div>
+            <ul class="badge-container">
+                <li v-for="(badge,i) in card.badges" :key="i" 
+                :class="`badge_${badge.type}`">{{ badge.value }}</li>
+            </ul>
             <button class="like-button">&hearts;</button>
         </div>
         <div class="card-footer">
             <div class="card-footer-brand">{{ card.brand }}</div>
             <h3 class="card-footer-title">{{ card.name }}</h3>
             <div class="card-footer-price">{{ card.price }} € 
-                <span class="old-price">{{ card.oldPrice }} €</span>
+                <span class="old-price">{{ card.oldPrice }}</span>
             </div>
         </div>
     </div>
@@ -86,15 +86,18 @@ export default {
     left: 0;
     color: white;
     font-weight: 700;
+    display: flex;
+    gap: 10px;
 }
 
- .discount-badge{
+ .badge_discount{
     background-color: red;
     padding: 5px 5px;
+    order: -1;
     
 }
 
-.sustainability{
+.badge_tag{
    
     background-color: green;
     padding: 5px 5px;
