@@ -1,32 +1,32 @@
 <script>
+import { store } from "/store.js"
+
 export default {
-    props: ["card", "badge"],
-  data() {
-    return{
-        
+    data() {
+        return{
+            store
+        }
     }
-  }
 }
 </script>
 
 
 <template>
-
-    <div class="col-3">
-        <div class="card-header">
-            <img :src="card.frontImage" alt="Picture of a model with the white shirt and beige pants">
-            <img class="hover-img" :src="card.backImage" alt="Picture of a model with the white shirt and beige pants with a brown jacket">
-            <ul class="badge-container">
-                <li v-for="(badge,i) in card.badges" :key="i" 
-                :class="`badge_${badge.type}`">{{ badge.value }}</li>
-            </ul>
-            <button class="like-button">&hearts;</button>
-        </div>
-        <div class="card-footer">
-            <div class="card-footer-brand">{{ card.brand }}</div>
-            <h3 class="card-footer-title">{{ card.name }}</h3>
-            <div class="card-footer-price">{{ card.price }} € 
-                <span class="old-price">{{ card.oldPrice }}</span>
+    <div class="col-3" v-for="(product,i) in store.products" :key="product.id" >
+        <div class="card">
+            <div class="card-header">
+                <img :src="store.products[i].frontImage" alt="Picture of a model with the white shirt and beige pants">
+                <img class="hover-img" :src="store.products[i].backImage" alt="Picture of a model with the white shirt and beige pants with a brown jacket">
+                <ul class="badge-container">
+                    <li v-for="(badge,i) in store.products[i].badges" :key="i" 
+                    :class="`badge_${badge.type}`">{{ badge.value }}</li>
+                </ul>
+                <button class="like-button">&hearts;</button>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-brand" >{{ store.products[i].brand }}</div>
+                <h3 class="card-footer-title">{{ store.products[i].name }}</h3>
+                <div class="card-footer-price">{{ store.products[i].price }} €</div>
             </div>
         </div>
     </div>
