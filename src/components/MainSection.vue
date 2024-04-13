@@ -29,7 +29,11 @@ export default {
 
       <div class="row">
 
-        <CardComponent />
+        <div class="col-3" v-for="(product,i) in store.products" :key="product.id" >
+
+          <CardComponent :card="product" :badge="product.badges"/>
+
+        </div>
 
       </div>
 
@@ -47,7 +51,11 @@ export default {
 
 <style lang="scss" scoped>
 
-
+.col-3{
+    width: calc(3 * 100% / 12);
+    min-height: 100%;
+    
+}
 
 .container {
     .row {
